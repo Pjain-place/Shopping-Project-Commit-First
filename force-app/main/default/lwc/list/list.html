@@ -1,0 +1,74 @@
+<template>
+    <!-- Lightning-spinner on page -->
+    <template if:true={isLoading}>
+        <div class="spinner">
+            <lightning-spinner alternative-text="Loading" variant="brand" size="large">
+            </lightning-spinner>
+        </div>
+    </template>
+    <template if:true={showPage}>
+
+        <lightning-layout multiple-rows="true" class="slds-m-horizontal_x-small">
+            <!-- Send the value of items in child(Tile) component -->
+            <template for:each={items} for:item="Item">
+                <lightning-layout-item size="4" key={Item.Id} class="slds-p-around_small">
+                    <c-tile item={Item} ondeleteclick={handleRemove} onquantitychange={handleChildChange}>
+                    </c-tile>
+                </lightning-layout-item>
+            </template>
+        </lightning-layout>
+
+        <div slot="footer">
+            <lightning-layout horizontal-align="space" if:true={isPagination}>
+                <lightning-layout-item flexibility="auto">
+                    Showing {page} of {totalPage} Page
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto">
+                    <lightning-button 
+                        label="Previous"
+                        onclick={previousHandler}
+                        disabled={disablePrev}>
+                    </lightning-button>       
+                    <lightning-button 
+                        label="Next" 
+                        variant="brand"
+                        onclick={nextHandler}
+                        disabled={disableNext}>
+                    </lightning-button>
+                </lightning-layout-item>
+                <lightning-layout-item flexibility="auto">
+                    Showing {startRec} -{endRec} of {totalRecordCount} Records
+                </lightning-layout-item>
+            </lightning-layout>  
+            <div if:false={isPagination}>
+                <h1 style="text-align: center;color:red;">No Items Found!</h1>
+            </div>
+        </div>
+        <br>
+        <!-- Total Item And Price Lightning Card -->
+        <lightning-layout>
+            <lightning-layout-item size="4"></lightning-layout-item>
+            <lightning-layout-item size="4">
+                <div class="totalItem">
+                    <p>Added Item:{additem}</p>
+                    <h1>TOTAL PRICE : {totalPrice}</h1>
+                </div>
+            </lightning-layout-item>
+            <lightning-layout-item size="4">
+                <lightning-button label="Go To Cart" variant="brand" icon-name="utility:cart" onclick={goToNextPage}>
+                </lightning-button>
+
+            </lightning-layout-item>
+        </lightning-layout>
+    </template>
+    <template if:false={showPage}>
+        <c-card  
+        additem={additem} 
+        totalprice={totalPrice} 
+        itemlist={ItemList} 
+       
+        value={value}>
+
+        </c-card>
+    </template>
+</template>

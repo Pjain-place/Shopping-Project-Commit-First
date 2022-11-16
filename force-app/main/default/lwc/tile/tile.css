@@ -1,0 +1,22 @@
+.carditem[c-tile_tile] {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 0px;
+    margin: 10px;
+    margin-top: 10px;
+
+   
+}
+.carditem h1 {
+    font-size: 20px;
+    font-weight: 800;
+    text-align: center;
+}
+
+
+
+.carditem h3 {
+    font-size: 18px;
+    font-weight: 800;
+    text-align: center;
+}

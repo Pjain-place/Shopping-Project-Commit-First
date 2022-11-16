@@ -1,0 +1,35 @@
+<template>
+    <template if:true={item}>
+        <div class="carditem">
+            <h1>{item.Name}</h1>        
+            <p>{item.Description__c}</p>
+            <h3>Price : {item.UnitPrice__c}</h3>
+        
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col">
+                    <!-- Quantity Picklist Comobox -->
+                    <lightning-combobox disabled={item.Buttontrue} name="types" key-field="index" data-id={item.Id}
+                        value={item.quantity} options={Qtyptions} onchange={handleChange} placeholder="Qty"
+                        style="width:70px;">
+                    </lightning-combobox>
+                </div>
+                <div class="slds-col">
+                    <br>
+                    <!-- Add Price Item button -->
+                    <lightning-button icon-name="utility:add" value={AddPrice} if:true={item.showAddButton}
+                     variant="brand"
+                        onclick={childhandleAdd} data-id={item.Id} name={Add}>
+                    </lightning-button>
+                  <!-- //Delete Price Item Button -->
+                    <lightning-button if:true={item.showDeleteButton} icon-name="utility:delete" value={RemovePrice} variant="bare"
+                        data-id={item.Id} onclick={childhandleRemove} name={Delete}>
+                    </lightning-button>
+                    <p if:true={item.NoAvail} style="color:red;">Item is Out of Stock</p>
+                </div>
+            </div>
+        </div>
+    </template>
+    <template if:false={item}>
+        <p> There is No Item Avialable Now</p>
+    </template>
+</template>

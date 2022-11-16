@@ -1,0 +1,29 @@
+<template>
+<template if:true={showPage}>
+    <lightning-layout class="slds-p-horizontal_large">
+        <lightning-layout-item size="4" class="slds-p-horizontal_large">
+
+            <!-- Contact picklist combobox -->
+            <lightning-combobox name="types" value={value} options={Options} placeholder="Select a Contact"
+                onchange={handleTypeChange} data-id="selectcontact" required
+                >
+            </lightning-combobox>
+        </lightning-layout-item>
+        <br>
+        <lightning-layout-item size="6" class="slds-p-horizontal_large">
+
+            <!-- search bar Which search Items -->
+            <lightning-input type="text" onchange={handleChange} class="slds-show slds-is-relative"
+                placeholder="Search Text...">
+            </lightning-input>
+        </lightning-layout-item>
+
+        <lightning-layout-item size="2">
+            <br>
+            <lightning-button icon-name="utility:search" variant="brand" label="Search" icon-position="right"
+                onclick={handleClick} class="slds-m-left_x-small">
+            </lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+</template>
+</template>

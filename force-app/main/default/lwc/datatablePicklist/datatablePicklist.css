@@ -1,0 +1,6 @@
+.picklist-section .slds-dropdown{
+   
+    max-height: 120px;
+    max-width: fit-content;
+    overflow-block: auto;
+}

@@ -1,0 +1,14 @@
+.totalItem {
+    background-color: #ffffff;
+    border-radius: 0px;
+    border-color: #f1eeee;
+    border-style: solid;
+    text-align: center;
+    box-shadow: grey;
+    padding: 7px;
+    margin: 0px 30px;
+}
+.totalItem h1{
+    font-size: 22px;
+    font-weight: 800;
+}

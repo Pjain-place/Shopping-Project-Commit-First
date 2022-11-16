@@ -1,0 +1,35 @@
+<template>
+    <template if:true={isLoading}>
+        <div class="spinner">
+            <lightning-spinner alternative-text="Loading" variant="brand" size="large">
+            </lightning-spinner>
+        </div>
+    </template>
+    
+    <lightning-card>
+        <c-custom-data-table key-field="Id" data={itemlist} columns={columns}
+           onrowaction={handleRowAction} onpicklistchanged={picklistChanged}
+            hide-checkbox-column="true" show-row-number-column="false">
+        </c-custom-data-table>
+
+        <br>
+        <br>
+        <lightning-layout>
+            <lightning-layout-item size="4"></lightning-layout-item>
+            <lightning-layout-item size="4">
+                <div class="totalItem">
+                    <p>Total Added Items :{additem}</p>
+                    <br>
+                    <h1>Total Price : {totalprice}</h1>
+                </div>
+            </lightning-layout-item>
+        </lightning-layout>
+        <br>
+
+        <lightning-button label="Confirm Order" variant="brand" onclick={OnConfirmation} style=margin-left:660px;
+            disabled={Buttontrue}>
+        </lightning-button>
+
+    </lightning-card>
+
+</template>

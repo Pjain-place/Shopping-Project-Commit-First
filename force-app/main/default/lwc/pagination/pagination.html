@@ -1,0 +1,22 @@
+<template>
+    <lightning-layout horizontal-align="space">
+        <lightning-layout-item flexibility="auto">
+            Showing {page} of {totalPage} Page
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto">
+            <lightning-button 
+                label="Previous"
+                onclick={previousHandler}>
+            </lightning-button>
+
+            <lightning-button 
+                label="Next" 
+                variant="brand"
+                onclick={nextHandler}>
+            </lightning-button>
+        </lightning-layout-item>
+        <lightning-layout-item flexibility="auto">
+           
+        </lightning-layout-item>
+    </lightning-layout>  
+</template>
